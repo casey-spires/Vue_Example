@@ -1,0 +1,22 @@
+﻿<div id="app">
+    <div class="form-group">
+        <label>Search for Nerd:</label>
+        <input v-model="searchParameter" class="form-control" type="text" />
+        <button v-on:click="search()" class="btn btn-success">Search</button>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="programmer in tableData">
+                <td scope="row">{{ programmer.id}}</td>
+                <td>{{ programmer.name}}</td>
+                <td><button class="btn btn-primary" v-if="!programmer.cool" v-on:click="unCoolThem(programmer.id)">Not Cool</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
